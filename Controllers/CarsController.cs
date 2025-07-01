@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AluguelDeCarrosMVC.Models;
 using AluguelDeCarrosMVC.Repositories;
-using Microsoft.AspNetCore.Authorization; 
+using Microsoft.AspNetCore.Authorization;
 
-[Authorize] 
+[Authorize(Roles = "Admin")]
 public class CarsController : Controller
 {
     private readonly ICarRepository _carRepository;

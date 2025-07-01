@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AluguelDeCarrosMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2764239b99f55fe5bd99b53eea7e010b76f984c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4c84f58207f3582a360dff6ea2d70a19e4db137")]
 [assembly: System.Reflection.AssemblyProductAttribute("AluguelDeCarrosMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AluguelDeCarrosMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
