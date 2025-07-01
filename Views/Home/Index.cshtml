@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AluguelDeCarrosMVC.Models.Car>
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="hero-section text-center text-white">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="display-4 fw-bold">Bem-vindo à Locadora Top</h1>
+        <p class="lead">Os melhores carros, pelos melhores preços. Alugue agora de forma fácil e rápida.</p>
+        <a asp-controller="Cars" asp-action="Index" class="btn btn-primary btn-lg">Ver Carros Disponíveis</a>
+    </div>
+</div>
+
+<div class="container text-center my-5">
+    <h2 class="mb-4">Alugar é Simples</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <i class="fas fa-car fa-3x mb-3 text-primary"></i>
+            <h3>1. Escolha o Carro</h3>
+            <p>Navegue pela nossa frota e encontre o veículo perfeito para sua necessidade.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="far fa-calendar-alt fa-3x mb-3 text-primary"></i>
+            <h3>2. Reserve as Datas</h3>
+            <p>Selecione o período de retirada e devolução de forma rápida e online.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-key fa-3x mb-3 text-primary"></i>
+            <h3>3. Retire as Chaves</h3>
+            <p>Compareça à nossa agência com seus documentos e saia dirigindo.</p>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Nossa Frota em Destaque</h2>
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Modelo)</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Marca) - @Html.DisplayFor(modelItem => item.Ano)</h6>
+                                <p class="card-text">
+                                    <strong>Diária:</strong> R$ @Html.DisplayFor(modelItem => item.PrecoDiaria)
+                                </p>
+                                <div class="mt-auto text-center">
+                                    <a asp-controller="Aluguels" asp-action="Create" class="btn btn-success">Alugar Agora</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center">Nenhum carro em destaque no momento. Cadastre novos veículos!</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model AluguelDeCarrosMVC.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Registrar Novo Aluguel";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Novo Registro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ClienteId" class="control-label">Cliente</label>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId">
+                    <option value="">-- Selecione um Cliente --</option>
+                </select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CarroId" class="control-label">Carro</label>
+                <select asp-for="CarroId" class="form-control" asp-items="ViewBag.CarroId">
+                    <option value="">-- Selecione um Carro --</option>
+                </select>
+                <span asp-validation-for="CarroId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataRetirada" class="control-label">Data da Retirada</label>
+                <input asp-for="DataRetirada" class="form-control" />
+                <span asp-validation-for="DataRetirada" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataDevolucao" class="control-label">Data da Devolução</label>
+                <input asp-for="DataDevolucao" class="form-control" />
+                <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ValorTotal" class="control-label">Valor Total</label>
+                <input asp-for="ValorTotal" class="form-control" />
+                <span asp-validation-for="ValorTotal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
