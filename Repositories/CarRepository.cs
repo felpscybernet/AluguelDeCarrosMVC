@@ -29,7 +29,7 @@ namespace AluguelDeCarrosMVC.Repositories
             return await _context.Carros.ToListAsync();
         }
 
-        public async Task<Car> GetByIdAsync(int id)
+        public async Task<Car?> GetByIdAsync(int id)
         {
             return await _context.Carros.FindAsync(id);
         }

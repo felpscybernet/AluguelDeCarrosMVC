@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AluguelDeCarrosMVC.Models;
 using AluguelDeCarrosMVC.Repositories;
+using Microsoft.AspNetCore.Authorization; 
 
 namespace AluguelDeCarrosMVC.Controllers
 {
+    [Authorize]
     public class ClientesController : Controller
     {
         private readonly IClienteRepository _clienteRepository;
@@ -13,14 +15,13 @@ namespace AluguelDeCarrosMVC.Controllers
             _clienteRepository = clienteRepository;
         }
 
-        // GET: Clientes
+        
         public async Task<IActionResult> Index()
         {
             var clientes = await _clienteRepository.GetAllAsync();
             return View(clientes);
         }
 
-        // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int id)
         {
             var cliente = await _clienteRepository.GetByIdAsync(id);
@@ -31,28 +32,29 @@ namespace AluguelDeCarrosMVC.Controllers
             return View(cliente);
         }
 
-        // GET: Clientes/Create
+        
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Clientes/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // CORREÇÃO AQUI: "CPF" em maiúsculo
+        
         public async Task<IActionResult> Create([Bind("Id,Nome,CPF,Telefone,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
                 await _clienteRepository.AddAsync(cliente);
                 await _clienteRepository.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Cliente atualizado com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
         }
 
-        // GET: Clientes/Edit/5
+        
         public async Task<IActionResult> Edit(int id)
         {
             var cliente = await _clienteRepository.GetByIdAsync(id);
@@ -77,12 +79,13 @@ namespace AluguelDeCarrosMVC.Controllers
             {
                 _clienteRepository.Update(cliente);
                 await _clienteRepository.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Cliente excluído com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
         }
 
-        // GET: Clientes/Delete/5
+        
         public async Task<IActionResult> Delete(int id)
         {
             var cliente = await _clienteRepository.GetByIdAsync(id);
@@ -93,7 +96,7 @@ namespace AluguelDeCarrosMVC.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

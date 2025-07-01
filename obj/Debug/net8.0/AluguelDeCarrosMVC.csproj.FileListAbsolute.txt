@@ -293,3 +293,4 @@ D:\AluguelDeCarrosMVC\AluguelDeCarrosMVC\obj\Debug\net8.0\refint\AluguelDeCarros
 D:\AluguelDeCarrosMVC\AluguelDeCarrosMVC\obj\Debug\net8.0\AluguelDeCarrosMVC.pdb
 D:\AluguelDeCarrosMVC\AluguelDeCarrosMVC\obj\Debug\net8.0\AluguelDeCarrosMVC.genruntimeconfig.cache
 D:\AluguelDeCarrosMVC\AluguelDeCarrosMVC\obj\Debug\net8.0\ref\AluguelDeCarrosMVC.dll
+D:\AluguelDeCarrosMVC\AluguelDeCarrosMVC\obj\Debug\net8.0\AluguelDeCarrosMVC.sourcelink.json

@@ -28,7 +28,7 @@ namespace AluguelDeCarrosMVC.Repositories
         public async Task<IEnumerable<Aluguel>> GetAllAsync()
         {
             return await _context.Alugueis
-                .Include(a => a.Car)       // Inclui os dados do Carro relacionado
+                .Include(a => a.Car)       
                 .Include(a => a.Cliente)   // Inclui os dados do Cliente relacionado
                 .ToListAsync();
         }
@@ -49,6 +49,16 @@ namespace AluguelDeCarrosMVC.Repositories
         public void Update(Aluguel aluguel)
         {
             _context.Alugueis.Update(aluguel);
+        }
+        // Em Repositories/AluguelRepository.cs
+        public async Task<bool> CarroJaAlugadoNoPeriodo(int carroId, DateTime dataRetirada, DateTime dataDevolucao)
+        {
+            // Verifica se existe algum aluguel para o mesmo carro que comece antes da data de devolução
+            // e termine depois da data de retirada.
+            return await _context.Alugueis.AnyAsync(a =>
+                a.CarroId == carroId &&
+                a.DataRetirada < dataDevolucao &&
+                a.DataDevolucao > dataRetirada);
         }
     }
 }

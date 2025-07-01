@@ -13,12 +13,12 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Aluguel> Alugueis { get; set; }
 
-    // ADICIONE ESTE MÉTODO PARA CORRIGIR OS AVISOS
+   
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder); // Essencial para o Identity funcionar
+        base.OnModelCreating(modelBuilder); 
 
-        // Configura a precisão das propriedades decimais
+        
         modelBuilder.Entity<Car>()
             .Property(c => c.PrecoDiaria)
             .HasColumnType("decimal(18, 2)");

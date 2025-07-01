@@ -1,5 +1,5 @@
 ﻿using AluguelDeCarrosMVC.Models;
-using AluguelDeCarrosMVC.Repositories; // <<-- Adicione este using
+using AluguelDeCarrosMVC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -9,7 +9,7 @@ namespace AluguelDeCarrosMVC.Controllers
     {
         private readonly ICarRepository _carRepository;
 
-        // Pede o repositório de carros para funcionar
+       
         public HomeController(ICarRepository carRepository)
         {
             _carRepository = carRepository;
@@ -18,7 +18,7 @@ namespace AluguelDeCarrosMVC.Controllers
         // Ação Index agora busca os carros
         public async Task<IActionResult> Index()
         {
-            // Busca todos os carros e pega os 3 primeiros para destacar
+            
             var carrosEmDestaque = (await _carRepository.GetAllAsync()).Take(3);
             return View(carrosEmDestaque);
         }

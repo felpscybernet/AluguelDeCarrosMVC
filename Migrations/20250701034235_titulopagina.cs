@@ -4,10 +4,10 @@
 
 namespace AluguelDeCarrosMVC.Migrations
 {
-    /// <inheritdoc />
+    
     public partial class Titulopagina : Migration
     {
-        /// <inheritdoc />
+        
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
@@ -32,7 +32,7 @@ namespace AluguelDeCarrosMVC.Migrations
                 oldType: "nvarchar(max)");
         }
 
-        /// <inheritdoc />
+       
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AluguelDeCarrosMVC.Migrations
 {
-    /// <inheritdoc />
+    
     public partial class AjusteFinalRelacionamentos : Migration
     {
-        /// <inheritdoc />
+       
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<decimal>(
@@ -28,7 +28,7 @@ namespace AluguelDeCarrosMVC.Migrations
                 oldType: "datetime2");
         }
 
-        /// <inheritdoc />
+        
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<decimal>(
